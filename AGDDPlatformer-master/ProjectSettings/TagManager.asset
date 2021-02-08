@@ -7,6 +7,7 @@ TagManager:
   - Player1
   - Player2
   - Platform
+  - World
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - 
   - 
   - Player
-  - 
-  - 
+  - Gate_blue
+  - Gate_red
   - 
   - 
   - 

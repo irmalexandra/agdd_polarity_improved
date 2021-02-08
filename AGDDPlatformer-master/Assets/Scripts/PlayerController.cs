@@ -40,6 +40,7 @@ namespace AGDDPlatformer
 
         void Update()
         {
+
             isFrozen = GameManager.instance.timeStopped;
 
             /* --- Read Input --- */
@@ -47,6 +48,7 @@ namespace AGDDPlatformer
             move.x = Input.GetAxisRaw("Horizontal");
             if (gravityModifier < 0)
             {
+                
                 move.x *= -1;
             }
 

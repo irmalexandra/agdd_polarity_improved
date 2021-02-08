@@ -1,12 +1,19 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using TreeEditor;
 using UnityEngine;
 
 public class Platform : MonoBehaviour
 {
     // Start is called before the first frame update
-    public Vector3 velocity;
+    public Vector2 velocity;
+    public Rigidbody2D body;
     public bool moving;
+    public int direction;
+    public double travel_distance;
+    private double start_position;
+    private double end_position;
 
     // private void OnCollisionEnter2D(Collision2D collision)
     // {
@@ -24,12 +31,23 @@ public class Platform : MonoBehaviour
     //     }
     // }
 
+    private void Start()
+    {
+        start_position = transform.position.x;
+        end_position = start_position + travel_distance;
+    }
+
     private void FixedUpdate()
     {
-        if (moving)
+        if (transform.position.x )
         {
-            body += (velocity * Time.deltaTime);
+            body.velocity = (velocity * Time.deltaTime) * direction;
         }
     }
-    
+
+    private void OnCollisionEnter2D(Collision2D other)
+    {
+        direction *= -1;
+        
+    }
 }

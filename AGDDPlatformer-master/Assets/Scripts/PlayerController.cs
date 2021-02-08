@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace AGDDPlatformer
 {
@@ -22,6 +23,8 @@ namespace AGDDPlatformer
         float lastGroundedTime;
         bool canJump;
         bool jumpReleased;
+        private bool touchingPlatform;
+        public float platformMovement = 0;
         Vector2 move;
 
         SpriteRenderer spriteRenderer;
@@ -90,8 +93,11 @@ namespace AGDDPlatformer
                 jumpReleased = false;
             }
 
-            velocity.x = move.x * maxSpeed;
 
+            velocity.x = (move.x * maxSpeed) + platformMovement;
+
+
+            
             /* --- Adjust Sprite --- */
 
             // Assume the sprite is facing right, flip it if moving left
@@ -113,6 +119,22 @@ namespace AGDDPlatformer
             lastJumpTime = -jumpBufferTime * 2;
 
             velocity = Vector2.zero;
+        }
+        
+        private void OnCollisionEnter2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Platform"))
+            {
+                platformMovement = collision.rigidbody.velocity.x;
+            }
+        }
+
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Platform"))
+            {
+                platformMovement = 0;
+            }
         }
     }
 }

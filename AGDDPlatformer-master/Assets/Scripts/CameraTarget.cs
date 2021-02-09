@@ -8,6 +8,8 @@ namespace AGDDPlatformer
     {
         public List<Transform> targets;
 
+        
+
         void LateUpdate()
         {
             float averageX = 0;

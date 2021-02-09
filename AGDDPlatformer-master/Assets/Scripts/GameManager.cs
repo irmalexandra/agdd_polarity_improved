@@ -90,7 +90,7 @@ namespace AGDDPlatformer
 
             if (Input.GetButtonDown("Reset"))
             {
-                ResetLevel();
+                ResetPlayers();
             }
         }
 
@@ -120,7 +120,13 @@ namespace AGDDPlatformer
             SceneManager.LoadScene(firstLevel);
         }
 
-        void ResetLevel()
+        public void ResetLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+        
+
+        void ResetPlayers()
         {
             foreach (PlayerController player in players)
             {

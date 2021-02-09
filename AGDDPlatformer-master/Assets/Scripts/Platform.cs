@@ -35,19 +35,26 @@ public class Platform : MonoBehaviour
     {
         start_position = transform.position.x;
         end_position = start_position + travel_distance;
+        body.velocity = velocity * (Time.deltaTime * direction);
+        // Debug.Log(end_position);
     }
 
     private void FixedUpdate()
     {
-        if (transform.position.x )
+        if (transform.position.x >= end_position)
         {
-            body.velocity = (velocity * Time.deltaTime) * direction;
+            body.velocity = velocity * (Time.deltaTime * direction * -1);
         }
+
+        if (transform.position.x < start_position)
+        {
+            body.velocity = velocity * (Time.deltaTime * direction * -1);
+        }
+        
     }
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         direction *= -1;
-        
     }
 }

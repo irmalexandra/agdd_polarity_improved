@@ -123,20 +123,42 @@ namespace AGDDPlatformer
             velocity = Vector2.zero;
         }
         
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Platform"))
+        // private void OnCollisionEnter2D(Collision2D collision)
+        // {
+        //     if (collision.gameObject.CompareTag("Platform"))
+        //     {
+        //         platformMovement = collision.gameObject.transform.velocity.x;
+        //     }
+        // }
+        //
+        // private void OnCollisionExit2D(Collision2D collision)
+        // {
+        //     if (collision.gameObject.CompareTag("Platform"))
+        //     {
+        //         platformMovement = 0;
+        //     }
+        // }
+        
+
+
+        private void OnCollisionEnter2D(Collision2D other)
+        {   
+
+            if (gameObject.CompareTag("Platform"))
             {
-                platformMovement = collision.rigidbody.velocity.x;
+                canJump = true;
+                transform.parent = other.gameObject.transform;
+                Debug.Log("On platform" + transform.parent);
+
+            }
+        }
+        private void OnCollisionExit2D(Collision2D other)
+        {
+            if (gameObject.CompareTag("Platform"))
+            {
+                transform.parent = null;
             }
         }
 
-        private void OnCollisionExit2D(Collision2D collision)
-        {
-            if (collision.gameObject.CompareTag("Platform"))
-            {
-                platformMovement = 0;
-            }
-        }
     }
 }

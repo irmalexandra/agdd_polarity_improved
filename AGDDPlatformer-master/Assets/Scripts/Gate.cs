@@ -14,8 +14,8 @@ public class Gate : MonoBehaviour
     {
         // Physics2D.IgnoreLayerCollision(9,8);
         Physics2D.IgnoreCollision(player.GetComponent<Collider2D>(), GetComponent<Collider2D>());
-        Debug.Log(GetComponent<Collider2D>());
-        Debug.Log(player.GetComponent<Collider2D>());
+        // Debug.Log(GetComponent<Collider2D>());
+        // Debug.Log(player.GetComponent<Collider2D>());
     }
 
  

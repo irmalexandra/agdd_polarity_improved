@@ -11,7 +11,6 @@ namespace AGDDPlatformer
         public float jumpDeceleration = 0.5f; // Upwards slow after releasing jump button
         public float cayoteTime = 0.1f; // Lets player jump just after leaving ground
         public float jumpBufferTime = 0.1f; // Lets the player input a jump just before becoming grounded
-
         [Header("Audio")]
         public AudioSource source;
         public AudioClip jumpSound;
@@ -23,8 +22,9 @@ namespace AGDDPlatformer
         float lastGroundedTime;
         bool canJump;
         bool jumpReleased;
-        private bool touchingPlatform;
-        public float platformMovement = 0;
+        // private bool _touchingPlatform = false;
+        // public Vector2 platformMovement = new Vector2(0, 0);
+        private float _platformMovementX = 0;
         Vector2 move;
 
         SpriteRenderer spriteRenderer;
@@ -48,7 +48,6 @@ namespace AGDDPlatformer
             move.x = Input.GetAxisRaw("Horizontal");
             if (gravityModifier < 0)
             {
-                
                 move.x *= -1;
             }
 
@@ -96,9 +95,12 @@ namespace AGDDPlatformer
             }
 
 
-            velocity.x = (move.x * maxSpeed) + platformMovement;
+            // var moveX = new Vector2(move.x * maxSpeed, velocity.y);
+            // velocity = moveX;
 
+            velocity.x = (move.x * maxSpeed) + _platformMovementX;
 
+            
             
             /* --- Adjust Sprite --- */
 
@@ -127,31 +129,38 @@ namespace AGDDPlatformer
         {
             if (collision.gameObject.CompareTag("Platform"))
             {
+                // var position = collision.transform.position;
+                // var speed = collision.gameObject.GetComponent<MovingPlatform>().speed;
+                // var movementVector = new Vector2(
+                //     CalcDiff(position.x, collisionScript.nextPos.x), 
+                //     CalcDiff(position.y, collisionScript.nextPos.y));
+                //
+                // if (transform.gameObject.CompareTag("Player2")){_platformMovement = new Vector2(movementVector.x * speed, movementVector.y * speed);}
+                // else if (transform.gameObject.CompareTag("Player1")){_platformMovement = new Vector2(movementVector.x * speed*-1, movementVector.y * speed*-1);}
                 var collisionScript = collision.gameObject.GetComponent<MovingPlatform>();
                 if (transform.gameObject.CompareTag("Player1"))
                 {
                     if (collisionScript.nextPos.x > collision.transform.position.x)
                     {
-                        platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed;
+                        _platformMovementX = collision.gameObject.GetComponent<MovingPlatform>().speed;
                     }                
                     if (collisionScript.nextPos.x < collision.transform.position.x)
                     {
-                        platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed * -1;
+                        _platformMovementX = collision.gameObject.GetComponent<MovingPlatform>().speed * -1;
                     }
                 }                
                 else if (transform.gameObject.CompareTag("Player2"))
                 {
                     if (collisionScript.nextPos.x > collision.transform.position.x)
                     {
-                        platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed * -1;
-                    }                
+                        _platformMovementX = collision.gameObject.GetComponent<MovingPlatform>().speed * -1;
+                    }
+
                     if (collisionScript.nextPos.x < collision.transform.position.x)
                     {
-                        platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed;
+                        _platformMovementX = collision.gameObject.GetComponent<MovingPlatform>().speed;
                     }
                 }
-
-                
             }
         }
         
@@ -159,10 +168,22 @@ namespace AGDDPlatformer
         {
             if (collision.gameObject.CompareTag("Platform"))
             {
-                platformMovement = 0;
+                // platformMovement = new Vector2(0,0);
+                _platformMovementX = 0;
+
+                // _touchingPlatform = false;
             }
         }
-        
+
+        // private int CalcDiff(float num1, float num2)
+        // {
+        //     
+        //     if (num1 / num2 > 1)
+        //     {
+        //         return -1;
+        //     }
+        //     return Math.Abs(num1 / num2 - 1) < TOLERANCE ? 0 : 1;
+        // }
 
 
         // private void OnCollisionEnter2D(Collision2D other)

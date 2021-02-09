@@ -11,7 +11,7 @@ public class MovingPlatform : MonoBehaviour
     
     public float speed;
 
-    private Vector3 nextPos;
+    public Vector3 nextPos;
 
     // Start is called before the first frame update
     void Start()

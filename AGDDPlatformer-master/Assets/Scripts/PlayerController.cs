@@ -123,42 +123,51 @@ namespace AGDDPlatformer
             velocity = Vector2.zero;
         }
         
-        // private void OnCollisionEnter2D(Collision2D collision)
-        // {
-        //     if (collision.gameObject.CompareTag("Platform"))
-        //     {
-        //         platformMovement = collision.gameObject.transform.velocity.x;
-        //     }
-        // }
-        //
-        // private void OnCollisionExit2D(Collision2D collision)
-        // {
-        //     if (collision.gameObject.CompareTag("Platform"))
-        //     {
-        //         platformMovement = 0;
-        //     }
-        // }
+        private void OnCollisionStay2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Platform"))
+            {
+                var collisionScript = collision.gameObject.GetComponent<MovingPlatform>();
+                if (collisionScript.nextPos.x == collisionScript.pos2.position.x)
+                {
+                    platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed;
+                }                
+                if (collisionScript.nextPos.x == collisionScript.pos1.position.x)
+                {
+                    platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed * -1;
+                }
+                
+            }
+        }
+        
+        private void OnCollisionExit2D(Collision2D collision)
+        {
+            if (collision.gameObject.CompareTag("Platform"))
+            {
+                platformMovement = 0;
+            }
+        }
         
 
 
-        private void OnCollisionEnter2D(Collision2D other)
-        {   
-
-            if (gameObject.CompareTag("Platform"))
-            {
-                canJump = true;
-                transform.parent = other.gameObject.transform;
-                Debug.Log("On platform" + transform.parent);
-
-            }
-        }
-        private void OnCollisionExit2D(Collision2D other)
-        {
-            if (gameObject.CompareTag("Platform"))
-            {
-                transform.parent = null;
-            }
-        }
+        // private void OnCollisionEnter2D(Collision2D other)
+        // {   
+        //
+        //     if (other.gameObject.CompareTag("Platform"))
+        //     {
+        //         canJump = true;
+        //         transform.parent = other.gameObject.transform;
+        //         Debug.Log("On platform" + transform.parent);
+        //
+        //     }
+        // }
+        // private void OnCollisionExit2D(Collision2D other)
+        // {
+        //     if (other.gameObject.CompareTag("Platform"))
+        //     {
+        //         transform.parent = null;
+        //     }
+        // }
 
     }
 }

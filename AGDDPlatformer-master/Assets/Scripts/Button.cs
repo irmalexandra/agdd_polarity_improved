@@ -10,8 +10,11 @@ public class Button : MonoBehaviour
     public GameObject[] to_destroy;
     public GameObject button_display;
     public GameObject button_face;
+    public bool toggle;
+    public float cooldown_time;
     
     private bool _playerInRange;
+    private float _cooldown = 0f;
     private bool _pressed;
     private SpriteRenderer _button_face_renderer;
     private Color _original_button_color;
@@ -26,17 +29,51 @@ public class Button : MonoBehaviour
 
     private void Update()
     {
-        if (_playerInRange && !_pressed)
+        if (_playerInRange)
         {
-            button_display.SetActive(true);
-            if (!Input.GetKey("e")) return;
-            foreach (var item in to_destroy)
+            // display tutorial
+            if (!toggle && !_pressed)
             {
-                item.SetActive(false);
+                button_display.SetActive(true);
             }
-            _pressed = true;
-            Color new_color = new Color(_original_button_color.r - 0.5f, _original_button_color.g, _original_button_color.b);
-            _button_face_renderer.color = new_color;
+            else if (toggle)
+            {
+                button_display.SetActive(true);
+            }
+            if (_cooldown > 0)
+            {
+                _cooldown -= Time.deltaTime;
+            }
+            
+            if (!Input.GetKey("e")) return;
+            // e pressed
+            
+            if (!toggle && !_pressed)
+            {
+                foreach (var item in to_destroy)
+                {
+                    item.SetActive(!item.activeInHierarchy);
+                }
+                Color new_color = new Color(_original_button_color.r - 0.5f, _original_button_color.g, _original_button_color.b);
+                _button_face_renderer.color = new_color;
+                _pressed = true;
+                button_display.SetActive(false);
+            }
+            else if(toggle)
+            {
+                if (_cooldown <= 0)
+                {
+                    foreach (var item in to_destroy)
+                    {
+                        item.SetActive(!item.activeInHierarchy);
+                    }
+
+                    _cooldown = cooldown_time;
+                }
+       
+            }
+
+
         }
         else
         {

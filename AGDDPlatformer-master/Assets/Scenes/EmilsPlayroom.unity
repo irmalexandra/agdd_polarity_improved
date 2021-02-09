@@ -119124,7 +119124,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2284888986513317493, guid: 66abd359468a45542aa484322f4e65e9,
         type: 3}
+      propertyPath: to_destroy.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2284888986513317493, guid: 66abd359468a45542aa484322f4e65e9,
+        type: 3}
       propertyPath: to_destroy
+      value: 
+      objectReference: {fileID: 1293012580}
+    - target: {fileID: 2284888986513317493, guid: 66abd359468a45542aa484322f4e65e9,
+        type: 3}
+      propertyPath: to_destroy.Array.data[0]
       value: 
       objectReference: {fileID: 1293012580}
     m_RemovedComponents: []

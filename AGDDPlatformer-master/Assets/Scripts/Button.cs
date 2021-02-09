@@ -7,7 +7,7 @@ public class Button : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject to_destroy;
+    public GameObject[] to_destroy;
     public GameObject button_display;
     public GameObject button_face;
     
@@ -30,7 +30,10 @@ public class Button : MonoBehaviour
         {
             button_display.SetActive(true);
             if (!Input.GetKey("e")) return;
-            to_destroy.SetActive(false);
+            foreach (var item in to_destroy)
+            {
+                item.SetActive(false);
+            }
             _pressed = true;
             Color new_color = new Color(_original_button_color.r - 0.5f, _original_button_color.g, _original_button_color.b);
             _button_face_renderer.color = new_color;

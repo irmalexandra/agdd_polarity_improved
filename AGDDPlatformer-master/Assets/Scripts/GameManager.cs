@@ -16,10 +16,9 @@ namespace AGDDPlatformer
         public PlayerGoal[] playerGoals;
         public bool timeStopped;
         public bool isGameComplete;
-        public string firstLevel;
-        public string nextLevel;
+        public bool lastLevel;
 
-        [Header("Level Transition")]
+            [Header("Level Transition")]
         public GameObject startScreen;
         public GameObject endScreen;
         public GameObject gameOverScreen;
@@ -104,9 +103,9 @@ namespace AGDDPlatformer
 
             yield return new WaitForSeconds(endScreenTime);
 
-            if (!string.IsNullOrEmpty(nextLevel))
+            if (!lastLevel)
             {
-                SceneManager.LoadScene(nextLevel);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
             }
             else
             {
@@ -117,7 +116,7 @@ namespace AGDDPlatformer
 
         void ResetGame()
         {
-            SceneManager.LoadScene(firstLevel);
+            SceneManager.LoadScene(0);
         }
 
         public void ResetLevel()

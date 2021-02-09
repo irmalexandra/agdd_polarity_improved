@@ -130,22 +130,22 @@ namespace AGDDPlatformer
                 var collisionScript = collision.gameObject.GetComponent<MovingPlatform>();
                 if (transform.gameObject.CompareTag("Player1"))
                 {
-                    if (collisionScript.nextPos.x == collisionScript.pos2.position.x)
+                    if (collisionScript.nextPos.x > collision.transform.position.x)
                     {
                         platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed;
                     }                
-                    if (collisionScript.nextPos.x == collisionScript.pos1.position.x)
+                    if (collisionScript.nextPos.x < collision.transform.position.x)
                     {
                         platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed * -1;
                     }
                 }                
                 else if (transform.gameObject.CompareTag("Player2"))
                 {
-                    if (collisionScript.nextPos.x == collisionScript.pos2.position.x)
+                    if (collisionScript.nextPos.x > collision.transform.position.x)
                     {
                         platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed * -1;
                     }                
-                    if (collisionScript.nextPos.x == collisionScript.pos1.position.x)
+                    if (collisionScript.nextPos.x < collision.transform.position.x)
                     {
                         platformMovement = collision.gameObject.GetComponent<MovingPlatform>().speed;
                     }

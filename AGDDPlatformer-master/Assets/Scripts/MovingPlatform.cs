@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AGDDPlatformer;
 using UnityEngine;
 
 public class MovingPlatform : MonoBehaviour

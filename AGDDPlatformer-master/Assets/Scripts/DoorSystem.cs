@@ -10,12 +10,12 @@ public class DoorSystem : MonoBehaviour
     public GameObject button_display;
     private GameObject _player_in_range;
     private bool _opened = false;
-    private Collider2D self_collider;
+    
 
 
     private void Start()
     {
-        self_collider = GetComponent<Collider2D>();
+        GetComponent<SpriteRenderer>().color = key.GetComponent<SpriteRenderer>().color;
     }
 
 
@@ -27,16 +27,17 @@ public class DoorSystem : MonoBehaviour
          
             
             button_display.SetActive(true);
-            if (Input.GetKey("e"))
+            if (!Input.GetKey("e")) return;
+            foreach (Transform child in  _player_in_range.transform)
             {
-                foreach (Transform child in  _player_in_range.transform)
+                if (!child.gameObject.CompareTag("Player_hand")) continue;
+                foreach (Transform item in child.transform)
                 {
-                    if (child.gameObject == key)
-                    {
-                        transform.parent.gameObject.SetActive(false);
-                        child.gameObject.SetActive(false);
-                    }
+                    if (item.gameObject != key) continue;
+                    transform.parent.gameObject.SetActive(false);
+                    item.gameObject.SetActive(false);
                 }
+
             }
         }
         else

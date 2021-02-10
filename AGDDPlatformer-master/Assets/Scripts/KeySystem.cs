@@ -32,10 +32,6 @@ public class KeySystem : MonoBehaviour
             if (Input.GetKey("e"))
             {
                
-                /*SpriteRenderer new_renderer = _player_in_range.AddComponent<SpriteRenderer>();
-                new_renderer.sprite = _key_sprite;
-                new_renderer.size = new Vector2(0.5f, 0.5f);
-                new_renderer.sortingOrder = 2;*/
                 var key_transform = transform;
                 key_transform.parent = _player_in_range.transform;
                 self_sprite_renderer.sortingOrder = 2;
@@ -43,6 +39,7 @@ public class KeySystem : MonoBehaviour
                 key_transform.position = new Vector3(_player_in_range.transform.position.x, 0.5f, 0f);
                 key_transform.localScale = new Vector3(0.5f, 0.5f, 0f);
                 self_box_collider.enabled = false;
+                transform.Rotate(Vector3.right, 45f);
 
             }
             

@@ -321,9 +321,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e03cc53342051e42bf9ef62e4b76e6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  to_destroy:
-  - {fileID: 0}
-  - {fileID: 0}
+  to_destroy: []
   button_display: {fileID: 5574799575281978209}
   button_face: {fileID: 5574799575224074163}
   toggle: 1

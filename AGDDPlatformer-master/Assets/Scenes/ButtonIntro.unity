@@ -196,12 +196,12 @@ PrefabInstance:
     - target: {fileID: 4691332086608218244, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.995001
+      value: 5.995
       objectReference: {fileID: 0}
     - target: {fileID: 4691332086608218244, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.312476
+      value: 4.7333336
       objectReference: {fileID: 0}
     - target: {fileID: 4691332086616792638, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
@@ -291,27 +291,32 @@ PrefabInstance:
     - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_textInfo.characterCount
-      value: 0
+      value: 31
       objectReference: {fileID: 0}
     - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_textInfo.spaceCount
-      value: 0
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_textInfo.wordCount
-      value: 0
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_textInfo.lineCount
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_textInfo.pageCount
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
+        type: 3}
+      propertyPath: m_text
+      value: '"Press it! Press it for glory!"'
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d096467bd11505479937aff780e5cd2, type: 3}

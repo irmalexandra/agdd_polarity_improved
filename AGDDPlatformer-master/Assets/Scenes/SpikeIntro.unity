@@ -1085,7 +1085,7 @@ PrefabInstance:
     - target: {fileID: 4691332086608218244, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 6.102084
+      value: 4.7333336
       objectReference: {fileID: 0}
     - target: {fileID: 4691332086616792638, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
@@ -1175,7 +1175,37 @@ PrefabInstance:
     - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_text
-      value: Level 3
+      value: '"Spikes, why did it have to be spikes?"'
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 72
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
+        type: 3}
+      propertyPath: m_textInfo.lineCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4691332087007920044, guid: 1d096467bd11505479937aff780e5cd2,
+        type: 3}
+      propertyPath: m_textInfo.pageCount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4691332087063959026, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}

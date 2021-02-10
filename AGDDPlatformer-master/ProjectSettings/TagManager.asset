@@ -9,6 +9,7 @@ TagManager:
   - Platform
   - World
   - Button
+  - Player_hand
   layers:
   - Default
   - TransparentFX

@@ -496,6 +496,11 @@ PrefabInstance:
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[3].x
       value: -5
       objectReference: {fileID: 0}
+    - target: {fileID: 4691332085472185396, guid: 1d096467bd11505479937aff780e5cd2,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.175
+      objectReference: {fileID: 0}
     - target: {fileID: 4691332085822845703, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: nextLevel
@@ -534,7 +539,7 @@ PrefabInstance:
     - target: {fileID: 4691332086608218235, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: orthographic size
-      value: 7.36
+      value: 7.3
       objectReference: {fileID: 0}
     - target: {fileID: 4691332086608218244, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
@@ -544,7 +549,7 @@ PrefabInstance:
     - target: {fileID: 4691332086608218244, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.049584
+      value: 9.798929
       objectReference: {fileID: 0}
     - target: {fileID: 4691332086616792638, guid: 1d096467bd11505479937aff780e5cd2,
         type: 3}

@@ -17,7 +17,7 @@ public class Spikes : MonoBehaviour
 
     private static IEnumerator PlayerKilled()
     {
-        yield return new WaitForSeconds(3);
+        yield return new WaitForSeconds(1);
         GameManager.instance.ResetLevel();
     }
 }

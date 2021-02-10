@@ -33,11 +33,22 @@ public class KeySystem : MonoBehaviour
             {
                
                 var key_transform = transform;
-                key_transform.parent = _player_in_range.transform;
+                //key_transform.parent = _player_in_range.transform;
                 self_sprite_renderer.sortingOrder = 2;
                 _taken = true;
-                key_transform.position = new Vector3(_player_in_range.transform.position.x, 0.5f, 0f);
+                //key_transform.position = _player_in_range.transform.position;
                 key_transform.localScale = new Vector3(0.5f, 0.5f, 0f);
+                foreach (Transform child in  _player_in_range.transform)
+                {
+                    if (child.gameObject.CompareTag("Player_hand"))
+                    {
+                        key_transform.parent = child.transform;
+                        key_transform.position = child.position;
+                        key_transform.rotation = child.transform.rotation;
+                        /*transform.parent.gameObject.SetActive(false);
+                        child.gameObject.SetActive(false);*/
+                    }
+                }
                 self_box_collider.enabled = false;
                 transform.Rotate(Vector3.right, 45f);
 

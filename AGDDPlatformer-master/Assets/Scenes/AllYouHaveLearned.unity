@@ -118198,6 +118198,11 @@ PrefabInstance:
       propertyPath: to_destroy.Array.data[2]
       value: 
       objectReference: {fileID: 206948011}
+    - target: {fileID: 5574799575344819487, guid: 66abd359468a45542aa484322f4e65e9,
+        type: 3}
+      propertyPath: toggle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66abd359468a45542aa484322f4e65e9, type: 3}
 --- !u!4 &148559803 stripped
@@ -118920,6 +118925,11 @@ PrefabInstance:
       propertyPath: to_destroy.Array.data[0]
       value: 
       objectReference: {fileID: 154105858}
+    - target: {fileID: 5574799575344819487, guid: 66abd359468a45542aa484322f4e65e9,
+        type: 3}
+      propertyPath: toggle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66abd359468a45542aa484322f4e65e9, type: 3}
 --- !u!4 &386548952 stripped
@@ -120188,6 +120198,11 @@ PrefabInstance:
       propertyPath: to_destroy.Array.data[1]
       value: 
       objectReference: {fileID: 133908645}
+    - target: {fileID: 5574799575344819487, guid: 66abd359468a45542aa484322f4e65e9,
+        type: 3}
+      propertyPath: toggle
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66abd359468a45542aa484322f4e65e9, type: 3}
 --- !u!4 &1143968857 stripped

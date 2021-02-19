@@ -125,7 +125,7 @@ MonoBehaviour:
   pos1: {fileID: 5014332464023918927}
   pos2: {fileID: 5014332463665255630}
   startPos: {fileID: 5014332464023918927}
-  speed: 1
+  speed: 2
   nextPos: {x: 0, y: 0, z: 0}
 --- !u!50 &2529713539083897427
 Rigidbody2D:

@@ -123,7 +123,7 @@ namespace AGDDPlatformer
 
             if (Input.GetButtonDown("Reset"))
             {
-                ResetPlayers();
+                ResetLevel();
             }
         }
 

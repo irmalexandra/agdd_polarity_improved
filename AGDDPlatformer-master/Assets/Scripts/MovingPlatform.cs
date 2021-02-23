@@ -14,7 +14,6 @@ public class MovingPlatform : MonoBehaviour
 
     private float _timer;
     public Vector3 nextPos;
-    private bool stop;
 
     // Start is called before the first frame update
     void Start()
@@ -22,40 +21,36 @@ public class MovingPlatform : MonoBehaviour
         nextPos = startPos.position;
         stop = false;
         _timer = 0;
+        stop_timer++;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!stop)
-        {
-            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
-            if(_timer > )
-        }
-        else if(stop)
+        
+
+
+
+        if(_timer >= 0)
         {
             Debug.Log(_timer);
-            _timer += Time.deltaTime;
-            if (_timer >= stop_timer)
-            {
-                stop = false;
-            }
+            _timer -= Time.deltaTime;
+
         }
-        else
+        if (_timer <= 1)
         {
-            stop = false;
+            transform.position = Vector3.MoveTowards(transform.position, nextPos, speed * Time.deltaTime);
         }
-        
-        if (transform.position == pos1.position && _timer <= 0)
+
+        if (transform.position == pos1.position && _timer < 0)
         {
             _timer = stop_timer;
-            stop = true;
             nextPos = pos2.position;
+
         }    
-        if (transform.position == pos2.position && _timer <= 0)
+        if (transform.position == pos2.position && _timer < 0)
         {
-            stop = true;
             _timer = stop_timer;
             nextPos = pos1.position;
         }

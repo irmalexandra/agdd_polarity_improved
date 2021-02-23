@@ -19,7 +19,6 @@ public class MovingPlatform : MonoBehaviour
     void Start()
     {
         nextPos = startPos.position;
-        stop = false;
         _timer = 0;
         stop_timer++;
 
@@ -29,9 +28,6 @@ public class MovingPlatform : MonoBehaviour
     void Update()
     {
         
-
-
-
         if(_timer >= 0)
         {
             Debug.Log(_timer);

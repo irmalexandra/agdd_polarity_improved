@@ -18,6 +18,11 @@ public class Button : MonoBehaviour
     private bool _pressed;
     private SpriteRenderer _button_face_renderer;
     private Color _original_button_color;
+    
+    public AudioSource source;
+    public AudioClip buttonToggle;
+    public AudioClip buttonPress;
+    
     void Start()
     {
         _playerInRange = false;
@@ -50,6 +55,7 @@ public class Button : MonoBehaviour
             
             if (!toggle && !_pressed)
             {
+                source.PlayOneShot(buttonPress);
                 foreach (var item in to_destroy)
                 {
                     item.SetActive(!item.activeInHierarchy);
@@ -63,6 +69,7 @@ public class Button : MonoBehaviour
             {
                 if (_cooldown <= 0)
                 {
+                    source.PlayOneShot(buttonToggle);
                     foreach (var item in to_destroy)
                     {
                         item.SetActive(!item.activeInHierarchy);

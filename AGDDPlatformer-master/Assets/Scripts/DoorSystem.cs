@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using AGDDPlatformer;
 using UnityEngine;
 
 public class DoorSystem : MonoBehaviour
@@ -10,9 +11,8 @@ public class DoorSystem : MonoBehaviour
     public GameObject button_display;
     private GameObject _player_in_range;
     private bool _opened = false;
+
     
-
-
     private void Start()
     {
         GetComponent<SpriteRenderer>().color = key.GetComponent<SpriteRenderer>().color;
@@ -24,7 +24,6 @@ public class DoorSystem : MonoBehaviour
     {
         if (_player_in_range && !_opened)
         {
-         
             
             button_display.SetActive(true);
             if (!Input.GetKey("e")) return;
@@ -34,8 +33,10 @@ public class DoorSystem : MonoBehaviour
                 foreach (Transform item in child.transform)
                 {
                     if (item.gameObject != key) continue;
+                    GameManager.instance.PlayUnlockDoorSound();
                     transform.parent.gameObject.SetActive(false);
                     item.gameObject.SetActive(false);
+
                 }
 
             }

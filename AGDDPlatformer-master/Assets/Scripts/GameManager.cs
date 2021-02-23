@@ -30,11 +30,10 @@ namespace AGDDPlatformer
         [Header("Audio")]
         public AudioSource source;
         public AudioClip winSound;
-
+        public AudioClip doorUnlock;
         void Awake()
         {
             instance = this;
-
             if (playerGoals.Length == 0)
             {
                 playerGoals = FindObjectsOfType<PlayerGoal>();
@@ -157,7 +156,11 @@ namespace AGDDPlatformer
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        
+
+        public void PlayUnlockDoorSound()
+        {
+            source.PlayOneShot(doorUnlock);
+        }
 
         void ResetPlayers()
         {
